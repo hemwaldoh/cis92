@@ -9,6 +9,10 @@ spec:
   - name: mysite
     image: ghcr.io/hemwaldoh/cis92:main
     imagePullPolicy: Always
+    livenessProbe:
+      httpGet:
+        path: /polls/
+        port: 8000
     resources:
       limits:
         cpu: 250m
