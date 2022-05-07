@@ -5,10 +5,17 @@ metadata:
   labels:
     app: mysite
 spec:
+  volumes:
+  - name: db
+    persistentVolumeClaim:
+      claimName: db
   containers:
   - name: mysite
     image: ghcr.io/hemwaldoh/cis92:main
     imagePullPolicy: Always
+    volumeMounts:
+    - name: db
+      mountPath: /db
     livenessProbe:
       httpGet:
         path: /polls/
