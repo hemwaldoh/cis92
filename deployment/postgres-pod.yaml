@@ -15,7 +15,7 @@ spec:
     imagePullPolicy: Always
     volumeMounts:
     - name: db
-      mountPath: /db
+      mountPath: /var/lib/postgresql
     livenessProbe:
       httpGet:
         path: /polls/
@@ -29,10 +29,16 @@ spec:
     - containerPort: 8000
     env:
     - name: DB_ENGINE
-      value: "sqlite"
+      value: "postgres"
     - name: DJANGO_ADMIN_EMAIL
       value: "test@test.test"
     - name: DJANGO_ADMIN_USERNAME
       value: "test"
     - name: DJANGO_SUPERUSER_PASSWORD
       value: "test"
+    - name: POSTGRES_DB
+      value: mysitedb
+    - name: POSTGRES_USER
+      value: mysiteuser
+    - name: POSTGRES_PASSWORD
+      value: mysitepassword
