@@ -10,7 +10,7 @@ spec:
     persistentVolumeClaim:
       claimName: db
   containers:
-  - name: postgres
+  - name: postgres-db
     image: docker.io/postgres:14.2
     imagePullPolicy: Always
     volumeMounts:
