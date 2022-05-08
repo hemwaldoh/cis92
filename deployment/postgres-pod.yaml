@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mysite
+  name: postgres
   labels:
-    app: mysite
+    app: postgres
 spec:
   volumes:
-  - name: db
+  - name: p-db
     persistentVolumeClaim:
-      claimName: db
+      claimName: p-db
   containers:
   - name: postgres-db
     image: docker.io/postgres:14.2
     imagePullPolicy: Always
     volumeMounts:
-    - name: db
+    - name: p-db
       mountPath: /var/lib/postgresql
     livenessProbe:
       httpGet:

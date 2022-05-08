@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysite
+  name: postgres
 spec:
   type: ClusterIP
   selector:
-    app: mysite
+    app: postgres
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8000
+      port: 5432
+      targetPort: 5432
